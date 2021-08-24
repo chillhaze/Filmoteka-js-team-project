@@ -10,7 +10,7 @@ let filmToFind = '';
 // Запрос страницы на популярные фильмы
 async function renderTrandingPage(page) {
   itemsApiService.page = page;
- window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   const result = await itemsApiService.fetchTrandingItems();
   updateMoviesData(result).then(movies => (refs.moviesList.innerHTML = galleryMarkup(movies)));
 }
@@ -19,14 +19,14 @@ async function renderTrandingPage(page) {
 async function renderMovieToFindPage(page, filmToFind) {
   itemsApiService.query = filmToFind;
   itemsApiService.page = page;
- window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   const result = await itemsApiService.fetchItemsFromSearch();
   updateMoviesData(result).then(movies => (refs.moviesList.innerHTML = galleryMarkup(movies)));
 }
 
 async function renderTopPage(page) {
   itemsApiService.page = page;
- window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   const result = await itemsApiService.fetchTop();
   updateMoviesData(result).then(movies => (refs.moviesList.innerHTML = galleryMarkup(movies)));
 }

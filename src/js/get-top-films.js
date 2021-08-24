@@ -16,8 +16,8 @@ async function getTop() {
   notification.onLoadingCircleAdd();
 
   // Загрузка данных
-    const result = await itemsApiService.fetchTop();
-    console.log(result)
+  const result = await itemsApiService.fetchTop();
+  console.log(result);
 
   notification.onLoadingCircleRemove();
   refs.alert.innerHTML = '';
@@ -28,7 +28,6 @@ async function getTop() {
   // Общее количество полученных страниц храним в numberOfPages
   numberOfPages = result.total_pages;
 
- 
   // Пагинация
   const container = document.getElementById('pagination');
   const pagination = new Pagination(container, options, (options.totalItems = numberOfPages));
@@ -40,9 +39,6 @@ async function getTop() {
     // Загрузка и отрисовка выбранной страницы
     renderTopPage(currentPage);
   });
-
-
-
 }
 
 export { getTop };

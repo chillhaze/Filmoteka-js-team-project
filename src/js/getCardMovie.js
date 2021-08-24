@@ -6,10 +6,9 @@ import notification from './pop-up-messages.js';
 import { addToWatched, addToQueue } from './add-to-watched';
 import userLibrary from './userLibrary';
 import { updateMoviesData } from './update-movies-data';
-import trailerInMovieMobile from '../templates/trailerInMovieMobile.hbs'
-import trailerInMovieTablet from '../templates/trailerInMovieTablet.hbs'
-import trailerInMovieDesktop from '../templates/trailerInMovieDesktop.hbs'
-
+import trailerInMovieMobile from '../templates/trailerInMovieMobile.hbs';
+import trailerInMovieTablet from '../templates/trailerInMovieTablet.hbs';
+import trailerInMovieDesktop from '../templates/trailerInMovieDesktop.hbs';
 
 const itemsApiService = new ItemsApiService();
 const refs = getRefs();
@@ -25,20 +24,16 @@ let modalTrailerClose;
 // Открытие модального окна с готовой карточкой
 
 function openCardMovie(event) {
+  const movieId = event.path[2].dataset.id;
 
-  const movieId = event.path[2].dataset.id ;
-
-  if (movieId ) {
+  if (movieId) {
     renderCard(movieId);
     document.querySelector('body').classList.add('scroll-disable');
     goTopBtn.classList.add('visually-hidden');
-
   }
-
-};
+}
 
 async function renderCard(movieId) {
-
   try {
     notification.onLoadingCircleAdd();
     card = await itemsApiService.fetchCard(movieId);
@@ -125,14 +120,14 @@ function openTrailer(event) {
   modalMovieOverlay.removeEventListener('click', closeCard);
   window.removeEventListener('keydown', closeCardEsc);
   document.querySelector('.modal-movie').classList.add('scroll-disable');
-};
+}
 
 // Закрытие окна с трейлером
 
-const closeTrailer = (event) => {
+const closeTrailer = event => {
   modalTrailer.classList.add('visually-hidden');
   const modalTrailerItem = document.querySelector('.modal-movie__video');
-  modalTrailerItem.setAttribute("src", " ")
+  modalTrailerItem.setAttribute('src', ' ');
   modalMovieOverlay.removeEventListener('click', closeTrailer);
   modalTrailerClose.removeEventListener('click', closeTrailer);
   window.removeEventListener('keydown', closeTrailerEsc);
@@ -140,40 +135,38 @@ const closeTrailer = (event) => {
   modalMovieClose.addEventListener('click', closeCard);
   window.addEventListener('keydown', closeCardEsc);
   document.querySelector('.modal-movie').classList.remove('scroll-disable');
- 
 };
 
 const closeTrailerEsc = event => {
-   if (event.key === "Escape") {
-      closeTrailer();
-   };
+  if (event.key === 'Escape') {
+    closeTrailer();
+  }
 };
 
 // Содание карточки с трейлером
 
 async function renderTrailer(imdbId) {
-try {
-  const cardImdb = await itemsApiService.fetchTrailer(imdbId);
-  const modalMovie = document.querySelector('.modal-movie')
-  modalTrailer = document.querySelector('.modal-trailer');
-  if (modalMovie.clientWidth >= 882) {
-    modalTrailer.innerHTML = trailerInMovieDesktop(cardImdb);
-  } else if (modalMovie.clientWidth <= 320) {
-    modalTrailer.innerHTML = trailerInMovieMobile(cardImdb);
-  } else {
-    modalTrailer.innerHTML = trailerInMovieTablet(cardImdb);
+  try {
+    const cardImdb = await itemsApiService.fetchTrailer(imdbId);
+    const modalMovie = document.querySelector('.modal-movie');
+    modalTrailer = document.querySelector('.modal-trailer');
+    if (modalMovie.clientWidth >= 882) {
+      modalTrailer.innerHTML = trailerInMovieDesktop(cardImdb);
+    } else if (modalMovie.clientWidth <= 320) {
+      modalTrailer.innerHTML = trailerInMovieMobile(cardImdb);
+    } else {
+      modalTrailer.innerHTML = trailerInMovieTablet(cardImdb);
+    }
+    modalTrailer.classList.remove('visually-hidden');
+    modalTrailerClose = document.querySelector('.modal-trailer__btn--close');
+    modalMovieOverlay.addEventListener('click', closeTrailer);
+    modalTrailerClose.addEventListener('click', closeTrailer);
+    window.addEventListener('keydown', closeTrailerEsc);
+    modalMovieClose.removeEventListener('click', closeCard);
+    modalMovieOverlay.removeEventListener('click', closeCard);
+    window.removeEventListener('keydown', closeCardEsc);
+  } catch (error) {
+    console.log(error.message);
   }
-  modalTrailer.classList.remove(('visually-hidden'));
-  modalTrailerClose = document.querySelector('.modal-trailer__btn--close');
-  modalMovieOverlay.addEventListener('click', closeTrailer);
-  modalTrailerClose.addEventListener('click', closeTrailer);
-  window.addEventListener('keydown', closeTrailerEsc);
-  modalMovieClose.removeEventListener('click', closeCard);
-   modalMovieOverlay.removeEventListener('click', closeCard);
-   window.removeEventListener('keydown', closeCardEsc);
-  
-} catch (error){
-      console.log(error.message);
-  };
-};
-export { openCardMovie, renderCard,  openTrailer, renderTrailer};
+}
+export { openCardMovie, renderCard, openTrailer, renderTrailer };

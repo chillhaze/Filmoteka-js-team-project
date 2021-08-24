@@ -1,22 +1,22 @@
 {
-  "name": "parcel-project-template",
+  "name": "filmoteka-js-team-project",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://AlexandrHavrylov.github.io/c0de_w13ards_filmoteka",
+  "homepage": "https://chillhaze.github.io/filmoteka-js-team-project/",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /c0de_w13ards_filmoteka/"
+    "build": "parcel build src/*.html --public-url /filmoteka-js-team-project/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://github.com/chillhaze/filmoteka-js-team-project"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Alexander Gotra <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+    "url": "https://github.com/chillhaze/filmoteka-js-team-project/issues"
   },
   "devDependencies": {
     "axios": "^0.21.1",

@@ -3,7 +3,6 @@ import { HEADER_ENUM } from './header-switch';
 import userLibrary from './userLibrary';
 import notification from './pop-up-messages.js';
 
-
 function addToWatched(card) {
   const addToWatchBtn = document.querySelector("[data-name='watched']");
 

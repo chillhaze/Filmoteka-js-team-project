@@ -53,23 +53,18 @@ export default class ItemsApiService {
       .catch(error => console.log(error.message));
   }
 
-
   fetchTrailer(imdbId) {
     const BASE_URL = 'https://imdb-api.com/en/API/Trailer';
     const URL_CARD = `${imdbId}`;
     const API_KEY = 'k_m2kmax97';
     const url = `${BASE_URL}/${API_KEY}/${URL_CARD}`;
-     return axios
+    return axios
       .get(url)
       .then(response => {
         return response.data;
       })
       .catch(error => console.log(error.message));
-
-  };
-
-
-    
+  }
 
   fetchTop() {
     const BASE_URL = 'https://api.themoviedb.org/3/movie/top_rated';
@@ -82,12 +77,7 @@ export default class ItemsApiService {
         return response.data;
       })
       .catch(error => console.log(error.message));
-
-  };
-
-
- 
-  
+  }
 
   resetPage() {
     this.page = 1;
