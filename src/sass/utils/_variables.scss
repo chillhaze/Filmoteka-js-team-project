@@ -1,0 +1,61 @@
+:root {
+  // Background colors
+  //   for dark theme
+  --bg-color-dark: #333;
+  --bg-color-light: #fff;
+  --bg-color-header: rgba(0, 0, 0, 0.56);
+  --bg-color-footer: #f7f7f7;
+  --bg-color-modal: #f7f7f7;
+  --bg-ontop-btn: RGBA(247, 247, 247, 0.2);
+  --bg-overlay: rgba(0, 0, 0, 0.2);
+
+  --bg-color-pagination: #f7f7f7;
+
+  --border-pagination: none;
+  // Font colors
+  --font-color-dark: #000;
+  --font-color-light: #fff;
+  --font-color-footer: #545454;
+  --font-color-modal: #8c8c8c;
+  --color-pagination: #333;
+  // Accent colors
+  --accent-color: #ff6b08;
+
+  // Border colors
+  --border-color: #000;
+  --border-color-light: #fff;
+
+  // Opacity settings
+  // Boxshadow settings
+  --reviews-box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+  --pagination-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  // Gaps measures (for ex. "--item-set-gap: 20px;")
+  // Animation settings
+  --timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
+  --transiton-duration-time: 250ms;
+  // Backdrop opacity settings
+  --backdrop-color-op: rgba(17, 21, 24, 0.9);
+}
+
+// Breakpoint
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin mobile {
+  @media only screen and (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
+  }
+}

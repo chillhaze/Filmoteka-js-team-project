@@ -1,0 +1,11 @@
+<div class="thumb-wrap">
+   <button data-name='trailer-close' class="modal-trailer__btn--close visually-hidden" type='button'>close</button>
+   {{#if linkEmbed}}
+   <iframe class = "modal-movie__video" src="{{linkEmbed}}?autoplay=false&width=854" width="854" height="440" allowfullscreen="true" mozallowfullscreen="true"
+      webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
+   {{/if}}
+   {{#unless linkEmbed}}
+   <img src="https://dummyimage.com/882x440/f7f7f7/ff6b08.png&text=Sorry,+no+trailer+available." alt="{{title}}"
+      width="882" height="440" class="movie-card__poster">
+   {{/unless}}
+</div>

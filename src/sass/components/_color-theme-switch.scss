@@ -1,0 +1,125 @@
+body {
+  transition: color 150ms var(--timing-function), background-color 150ms var(--timing-function);
+}
+
+body.light-theme {
+  background-color: #fff;
+}
+
+body.dark-theme {
+  --bg-color-light: #333;
+  --bg-color-modal: #333;
+  --font-color-dark: rgba(255, 255, 255, 0.65);
+  --font-color-light: rgba(255, 255, 255, 0.65);
+  --font-color-footer: rgba(255, 255, 255, 0.65);
+  --color-pagination: rgba(255, 255, 255, 0.65);
+  --bg-color-pagination: rgba(107, 107, 107, 1);
+  --border-pagination: #ff6b08;
+  --bg-color-footer: #6b6b6b;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 105px;
+
+  @include tablet {
+    margin-top: 27px;
+  }
+}
+
+/* THEME SWITCH */
+.theme-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0;
+}
+
+.theme-switch__icon {
+  color: currentColor;
+  height: 15px;
+  width: 15px;
+
+  margin-left: 0;
+  &:first-child {
+    margin-right: 10px;
+  }
+
+  @include tablet {
+    margin-left: 0;
+    &:first-child {
+      margin-right: 8px;
+    }
+  }
+
+  @include desktop {
+    margin-left: 8px;
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+.theme-switch__control {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: 64px;
+  height: 32px;
+  border-radius: 50em;
+  padding: 3px 0;
+}
+
+.theme-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.theme-switch__track {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 80%;
+  height: 58%;
+  color: transparent;
+  user-select: none;
+  background-color: #333;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switch__marker {
+  position: relative;
+  background-color: var(--accent-color);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: transform 250ms var(--timing-fn);
+}
+
+.theme-switch__toggle:checked + .theme-switch__track {
+  background-color: #d3d3d4;
+}
+
+.theme-switch__toggle:checked ~ .theme-switch__marker {
+  transform: translateX(35px);
+}
+
+.theme-switch__toggle:focus + .theme-switch__track,
+.theme-switch__toggle:active + .theme-switch__track {
+  box-shadow: 0 0 0 3px #2196f3;
+}

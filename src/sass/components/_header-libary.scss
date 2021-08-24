@@ -1,0 +1,74 @@
+.form__btn {
+  width: 130px;
+  height: 44px;
+  text-transform: uppercase;
+  line-height: 1.33;
+  border-radius: 5px;
+  color: var(--font-color-light);
+  transition: transform var(--transiton-duration-time) var(--timing-fn);
+  background-color: transparent;
+  border-color: var(--font-color-light);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+
+  &:last-child {
+    margin-left: 20px;
+
+    @media screen and(min-width: 768px) {
+      margin-left: 15px;
+    }
+  }
+}
+
+// Указатель активной кнопки============================
+.form__btn--current {
+  background-color: var(--accent-color);
+  border-color: transparent;
+}
+// =====================================================
+
+.form__btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Меняем фоновую картинку добавлением этого класса==============
+.header__lib {
+  background-image: linear-gradient(to right, var(--bg-color-header), var(--bg-color-header)),
+    url('../images/header-library-320.jpg');
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right, var(--bg-color-header), var(--bg-color-header)),
+      url('../images/header-library-320@2x.jpg');
+  }
+
+  @include tablet {
+    background-image: linear-gradient(to right, var(--bg-color-header), var(--bg-color-header)),
+      url('../images/header-library-768.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, var(--bg-color-header), var(--bg-color-header)),
+        url('../images/header-library-768@2x.jpg');
+    }
+  }
+
+  @include desktop {
+    background-image: linear-gradient(to right, var(--bg-color-header), var(--bg-color-header)),
+      url('../images/header-library-1024.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, var(--bg-color-header), var(--bg-color-header)),
+        url('../images/header-library-1024@2x.jpg');
+    }
+  }
+}

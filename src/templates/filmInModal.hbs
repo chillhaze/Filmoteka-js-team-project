@@ -1,0 +1,69 @@
+<div class='modal-movie__overlay'>
+  <div class='modal-movie'>
+    <button type='button' class='modal-movie__close-btn' data-action='modal-close'>
+      {{! <svg width="14" height="14">
+        <use href="../src/images/icons.svg#icon-close"></use>
+    </svg> }}
+    </button>
+
+    <div class='modal-movie__thumb'>
+      {{#if poster_path}}
+        <img class='modal-movie__img' src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt='{{title}}' />
+      {{/if}}
+      {{#unless poster_path}}
+        <img
+          src='https://dummyimage.com/280x423/f7f7f7/ff6b08.png&text=Filmoteka'
+          alt='{{title}}'
+          width='500'
+          class='movie-card__poster'
+          data-id = "{{imdb_id}}
+          data-name = "trailer"
+        />
+      {{/unless}}
+    </div>
+
+    <div class='modal-movie__info'>
+
+      <h2 class='modal-movie__title'>{{title}}</h2>
+
+      <ul class='modal-movie__descr'>
+        <li class='modal-movie__item'>
+          <p class='modal-movie__descr-name'>Vote / Votes</p>
+          <p class='modal-movie__descr-info'>
+            <span class='modal-movie__descr-vote'>{{vote_average}}</span>
+            <span class='modal-movie__slash'>/</span>
+            <span class='modal-movie__descr-votes'>{{vote_count}}</span>
+          </p>
+        </li>
+        <li class='modal-movie__item'>
+          <p class='modal-movie__descr-name'>Popularity</p>
+          <p class='modal-movie__descr-info'>{{popularity}}</p>
+        </li>
+        <li class='modal-movie__item'>
+          <p class='modal-movie__descr-name'>Original Title</p>
+          <p class='modal-movie__descr-info'>{{original_title}}</p>
+        </li>
+        <li class='modal-movie__item'>
+          <p class='modal-movie__descr-name'>Genre</p>
+          <p class='modal-movie__descr-info'>
+            {{#each genres}}
+              <span class='modal-movie__genre'>{{this}}</span>
+            {{/each}}
+          </p>
+        </li>
+      </ul>
+
+      <h3 class='modal-movie__about-title'>About</h3>
+      <p class='modal-movie__about'>{{overview}}</p>
+
+      <div class='modal-movie__button-wrapper'>
+        <button data-name='watched' class='modal-movie__button' type='button'>add to watched</button>
+        <button data-name='queue' class='modal-movie__button' type='button'>add to queue</button>
+        <button data-name='trailer' data-id = "{{imdb_id}}" class='modal-movie__button--trailer' type='button'></button>
+      </div>
+      
+    </div>
+  
+  </div>
+  <div class="modal-trailer visually-hidden"></div>
+</div>

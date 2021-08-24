@@ -1,0 +1,20 @@
+{{#each this}}
+    <li class="movie-card" data-id="{{id}}">
+        <div class="movie-card__thumb">
+            {{#if poster_path}}
+            <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" width="500" class="movie-card__poster">
+            {{/if}}
+            {{#unless poster_path}}
+            <img src="https://dummyimage.com/280x423/f7f7f7/ff6b08.png&text=Filmoteka" alt="{{title}}" width="500"
+                class="movie-card__poster">
+            {{/unless}}
+            <p class="movie-card__descr-vote">{{vote_average}}</p>
+        </div>
+        
+        <div class="movie-card__descr-container">
+            <p class="movie-card__title">{{title}}</p>
+            <p class="movie-card__descr">{{genres}} | {{movieYear}}</p>
+        </div>
+        
+    </li>
+{{/each}}

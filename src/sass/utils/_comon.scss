@@ -1,0 +1,109 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* -----Common styles----- */
+body {
+  margin: 0;
+}
+
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Flat H, P parameters */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--font-color-light);
+  background-color: var(--bg-color-light);
+  counter-reset: section;
+}
+
+/* -----Container----- */
+.container {
+  min-width: 320px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include tablet {
+    max-width: 768px;
+    padding: 0 75px;
+  }
+  @include desktop {
+    max-width: 1024px;
+    padding: 0 71px;
+  }
+}
+
+/* -----Accent text----- */
+.accent-text-color {
+  color: var(--accent-color);
+}
+
+/* -----Visually hidden----- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#content {
+  min-height: calc(100vh - 100px);
+  @include tablet {
+    min-height: calc(100vh - 77px);
+  }
+}

@@ -1,0 +1,125 @@
+.main {
+  padding: 20px 0 40px 0;
+
+  @include tablet {
+    padding: 60px 0;
+  }
+  @include desktop {
+    padding: 60px 0;
+  }
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include tablet {
+    margin-right: -30px;
+  }
+}
+
+.movie-card {
+  cursor: pointer;
+  width: 100%;
+  transition: transform 250ms linear;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include tablet {
+    margin-right: 30px;
+    margin-bottom: 30px;
+    flex-basis: calc((100% - 30px * 2) / 2);
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+
+  @include desktop {
+    flex-basis: calc((100% - 30px * 3) / 3);
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 3px 3px 6px rgba(255, 107, 8, 0.25);
+    border-radius: 3px;
+    transform: scale(1.03);
+  }
+}
+
+.movie-card__thumb {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.movie-card__poster {
+  border-radius: 5px;
+
+  @include tablet {
+    height: 411px;
+  }
+}
+
+.movie-card__descr-vote {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+
+  display: inline-block;
+  padding: 1px 10px;
+  width: 36px;
+  height: 16px;
+  text-align: center;
+  color: var(--font-color-light);
+  background-color: var(--accent-color);
+  border-radius: 5px;
+}
+
+.movie-card__descr-container {
+  padding: 0 10px 10px 10px;
+}
+
+.movie-card__title {
+  margin-bottom: 5px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  color: var(--font-color-dark);
+
+  @include desktop {
+    line-height: 1.33;
+  }
+}
+
+.movie-card__descr {
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--accent-color);
+}
+
+.filter__text {
+  color: var(--font-color-dark);
+}
+
+.filter__select {
+  margin-bottom: 20px;
+  color: var(--font-color-dark);
+  background-color: var(--bg-color-light);
+}
+
+.empty-library {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  font-size: large;
+}

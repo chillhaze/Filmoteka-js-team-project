@@ -1,0 +1,15 @@
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+@import './utils/variables';
+@import './utils/comon';
+@import './components/header-home';
+@import './components/header-libary';
+@import './components/main-section';
+@import './components/footer';
+@import './components/modal';
+@import './components/team-modal';
+@import './components/pagination';
+@import './components/back-to-top';
+@import './components/color-theme-switch';
